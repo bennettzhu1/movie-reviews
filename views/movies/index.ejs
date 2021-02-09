@@ -1,0 +1,25 @@
+<% layout('layouts/boilerplate.ejs') %>
+<link rel="stylesheet" href="/stylesheets/indexImage.css">
+
+<div class="col-6 offset-6">
+    <h2>All Movies</h2>
+</div>
+<% for (let movie of movies) {%>
+    <div class="card">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="<%=movie.image%>" class="img-fluid" alt="" >
+            </div>
+            <div class="col-md-8">
+                <h5 class="card-title"> <%= movie.title %> (<%=movie.date%>)</h5>
+                <p class="card-text">  
+                    <small class="text-muted"><%= movie.genre%></small>
+                </p>
+                <p class="card-text"> <%= movie.description %></p>
+                
+                <a class="btn btn-primary" href="/movies/<%= movie._id%>">More info</a>
+            </div>
+        </div>
+    </div>
+
+<% }%>
